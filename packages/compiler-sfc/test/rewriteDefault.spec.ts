@@ -293,4 +293,18 @@ describe('compiler sfc: rewriteDefault', () => {
       const script = Bar"
     `)
   })
+
+  test('@Component\nexport default class w/ preceeding export keyword & unrelated default keyword', async () => {
+    expect(
+      rewriteDefault(
+        `export const Bar = ''\n@Component export default class Foo { /*default*/ }`,
+        'script',
+        ['decorators-legacy']
+      )
+    ).toMatchInlineSnapshot(`
+      "export const Bar = ''
+      @Component class Foo {}
+      const script = Foo"
+    `)
+  })
 })
