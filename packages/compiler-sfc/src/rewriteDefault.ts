@@ -2,7 +2,8 @@ import { parse, ParserPlugin } from '@babel/parser'
 import MagicString from 'magic-string'
 
 const defaultExportRE = /((?:^|\n|;)\s*)export(\s*)default/
-const namedDefaultExportRE = /((?:^|\n|;)\s*)export(.+)(?:as)?(\s*)default/s
+const namedDefaultExportRE = /((?:^|\n|;)\s*)export(.+)as(\s*)default/s
+const objectWithDefaultExportRE = /((?:^|\n|;)\s*)export(\s*){(.+)default/s
 const exportDefaultClassRE =
   /((?:^|\n|;)\s*)export\s+default\s+class\s+([\w$]+)/
 
@@ -89,7 +90,7 @@ export function rewriteDefault(
 }
 
 export function hasDefaultExport(input: string): boolean {
-  return defaultExportRE.test(input) || namedDefaultExportRE.test(input)
+  return defaultExportRE.test(input) || namedDefaultExportRE.test(input) || objectWithDefaultExportRE.test(input)
 }
 
 function specifierEnd(
