@@ -5,6 +5,7 @@ importers:
   .:
     specifiers:
       '@babel/parser': ^7.18.4
+      '@babel/types': ^7.18.4
       '@microsoft/api-extractor': ^7.25.0
       '@rollup/plugin-alias': ^3.1.9
       '@rollup/plugin-commonjs': ^22.0.0
@@ -52,6 +53,7 @@ importers:
       csstype: 3.1.1
     devDependencies:
       '@babel/parser': 7.19.4
+      '@babel/types': 7.19.4
       '@microsoft/api-extractor': 7.32.1
       '@rollup/plugin-alias': 3.1.9_rollup@2.79.1
       '@rollup/plugin-commonjs': 22.0.2_rollup@2.79.1
@@ -2749,7 +2751,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
@@ -6523,7 +6525,7 @@ packages:
   'file:':
     resolution: {directory: '', type: directory}
     name: vue
-    version: 2.7.10
+    version: 2.7.14
     dependencies:
       '@vue/compiler-sfc': link:packages/compiler-sfc
       csstype: 3.1.1
